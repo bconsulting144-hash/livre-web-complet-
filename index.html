@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L&#39;IA a tu&eacute; le capitalisme &mdash; Oumarou Barry</title>
+  <meta name="description" content="Essai &eacute;conomique fictif par Oumarou Barry, Abidjan"/>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #f7f4ef;
+  color: #1a1a1a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* PAGE */
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* TYPOGRAPHIE */
+p { margin: 0 0 16px; text-align: justify; }
+
+h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0 0 12px;
+  line-height: 1.3;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 44px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #c8b89a;
+  color: #5a4030;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 32px 0 12px;
+  color: #5a4030;
+  font-weight: normal;
+}
+
+/* SOUS-TITRE */
+.sous {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+/* CITATIONS */
+blockquote {
+  border-left: 3px solid #c8b89a;
+  background: #efe9df;
+  margin: 24px 0;
+  padding: 16px 20px;
+  font-style: italic;
+  color: #3a2a1a;
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+/* NOTES */
+.note {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: #555;
+  margin: 0 0 10px;
+}
+
+/* MONOSPACE (tableaux) */
+.mono {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  background: #f0ece4;
+  padding: 3px 6px;
+  border-radius: 2px;
+}
+
+/* LIENS */
+a { color: #9a7850; text-decoration: none; }
+a:hover { text-decoration: underline; color: #c8b89a; }
+sup a { color: #c8b89a; }
+
+/* NOTES EN EXPOSANT */
+sup {
+  font-size: 0.68em;
+  color: #c8b89a;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* LISTES */
+ul { margin: 16px 0 16px 24px; }
+li { margin-bottom: 10px; }
+
+/* BARRE DE NAVIGATION */
+nav {
+  position: sticky;
+  top: 0;
+  background: #1a1a1a;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+nav a {
+  color: #c8b89a;
+  font-size: 0.75rem;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  letter-spacing: 0.05em;
+}
+nav a:hover { color: #fff; }
+
+/* BARRE DE PROGRESSION */
+.progress-bar {
+  height: 2px;
+  background: #e0d8cc;
+}
+
+/* NAVIGATION PREV/NEXT */
+.prev-next {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  display: flex;
+  gap: 12px;
+}
+.btn-prev {
+  flex: 1;
+  background: #efe9df;
+  border: 1px solid #c8b89a;
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-family: Georgia, serif;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: #1a1a1a;
+  display: block;
+  line-height: 1.4;
+}
+.btn-next {
+  flex: 1;
+  background: #1a1a1a;
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-family: Georgia, serif;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: #c8b89a;
+  display: block;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* SÉPARATEUR ✦ */
+.sep { text-align: center; color: #c8b89a; margin: 32px 0; font-size: 1rem; }
+
+/* COUVERTURE */
+.cover {
+  background: #111;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+}
+.cover .author {
+  color: #c8b89a;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.cover .line { width: 50px; height: 1px; background: #c8b89a; margin: 0 auto 40px; }
+.cover h1 {
+  color: #f0e8d8;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin-bottom: 14px;
+  font-weight: normal;
+}
+.cover .tagline { color: #c8b89a; font-style: italic; margin-bottom: 48px; font-size: 1rem; }
+.cover .btn-start {
+  display: block;
+  background: #c8b89a;
+  color: #1a1a1a;
+  border-radius: 4px;
+  padding: 14px 28px;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: 260px;
+}
+.cover .btn-toc {
+  display: block;
+  background: transparent;
+  color: #c8b89a;
+  border: 1px solid #c8b89a;
+  border-radius: 4px;
+  padding: 12px 28px;
+  font-family: Georgia, serif;
+  font-size: 0.88rem;
+  text-decoration: none;
+  width: 100%;
+  max-width: 260px;
+  margin-bottom: 48px;
+}
+.cover .date { color: #444; font-size: 0.72rem; }
+
+/* TABLE DES MATIÈRES */
+.toc {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 480px;
+}
+.toc h2 {
+  color: #c8b89a;
+  border-bottom-color: #333;
+  margin-top: 0;
+  font-size: 0.72rem;
+}
+.toc a {
+  display: block;
+  padding: 8px 12px;
+  color: #888;
+  border-left: 2px solid transparent;
+  font-family: Georgia, serif;
+  font-size: 0.82rem;
+  text-decoration: none;
+  margin-bottom: 2px;
+  transition: all 0.15s;
+}
+.toc a:hover { color: #c8b89a; border-left-color: #c8b89a; background: #222; }
+
+/* TABLEAUX MONOSPACE -> vrais tableaux */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 20px 0;
+  font-family: Georgia, serif;
+}
+.data-table th {
+  background: #1a1a1a;
+  color: #c8b89a;
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: normal;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.data-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0d8cc;
+  color: #333;
+}
+.data-table tr:nth-child(even) td { background: #f0ece4; }
+
+/* MOBILE */
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .page { padding: 32px 18px 60px; }
+  h1 { font-size: 1.35rem; }
+  .prev-next { flex-direction: column; }
+  .btn-prev, .btn-next { text-align: left; }
+  blockquote { padding: 12px 14px; }
+}
+</style>
+</head>
+<body>
+<div class="cover">
+  <p class="author">Oumarou Barry &middot; &Eacute;conomiste consultant &middot; Abidjan</p>
+  <div class="line"></div>
+  <h1>L&#39;IA a tu&eacute; le capitalisme</h1>
+  <p class="tagline">Comment l&#39;IA va tuer le capitalisme en 32 mois</p>
+  <a class="btn-start" href="index.html#intro">Commencer la lecture</a>
+  <a class="btn-toc" href="#toc">Table des mati&egrave;res</a>
+  <p class="date">Publication Mars 2026</p>
+  <div id="toc"><div class="toc"><h2>Table des mati&egrave;res</h2>
+<a href="index.html#intro">Introduction &mdash; 32 mois pour crever</a>
+<a href="part1.html#ch01">Chapitre 1 &mdash; La trahison originelle</a>
+<a href="part1.html#ch02">Chapitre 2 &mdash; 2023 : La religion IA</a>
+<a href="part1.html#ch03a">Chapitre 3 &mdash; La fuite vers le Golfe 1/2</a>
+<a href="part2.html#ch04a">Chapitre 4 &mdash; Le casus belli 1/2</a>
+<a href="part2.html#ch05a">Chapitre 5 &mdash; Le déni 1/2</a>
+<a href="part2.html#ch06a">Chapitre 6 &mdash; La réalité rattrape 1/2</a>
+<a href="part3.html#ch07a">Chapitre 7 &mdash; GPUs à 10 cents 1/2</a>
+<a href="part3.html#ch08a">Chapitre 8 &mdash; Chômage 1/2</a>
+<a href="part3.html#ch09a">Chapitre 9 &mdash; La Chine 1/2</a>
+<a href="part3.html#ch10a">Chapitre 10 &mdash; Néo-féodalisme 1/2</a>
+<a href="part3.html#ch11a">Chapitre 11 &mdash; GPAT 1/2</a>
+<a href="part3.html#ch12a">Chapitre 12 &mdash; Le Tripôle 1/2</a>
+<a href="part3.html#epilogue">Épilogue &mdash; Lettre à mon fils</a>
+</div></div>
+</div><nav><a href="index.html">&#8592; Couverture</a></nav><div class="page" id="intro"><h1>Introduction</h1>
+
+ <p>32 mois pour crever</p>
+
+ <p>Abidjan, 10 novembre 2025 &#8212; 23h47</p>
+
+ <p>Caf&eacute; serr&eacute;, bureau du Plateau. Trois onglets ouverts sur l&#39;&eacute;cran : un tableur avec les calculs sur la baisse tendancielle du taux de profit dans le secteur tech, un PDF annot&eacute; de Stabilizing an Unstable Economy d&#39;Hyman Minsky, et X.</p>
+
+ <p>C&#39;est ce dernier onglet qui va tout faire basculer.</p>
+
+ <p>Un message post&eacute; il y a 96 heures continue de faire des vagues<sup>[1]</sup> : 1,4 million de vues, 47 000 republications. Cinqui&egrave;me relecture :</p>
+
+ <blockquote>&laquo; There will be no federal bailout for AI. The U.S. has at least 5 major frontier model companies. If one fails, others will take its place. &raquo;</blockquote>
+
+ <p>David Sacks &#8212; X, 6 novembre 2025, 11h52 GMT<sup>[1]</sup></p>
+
+ <p>6 novembre 2025, 11h52 GMT. 28 heures apr&egrave;s la demande de Sarah Friar au WSJ Tech Live Summit. 28 heures pendant lesquelles les investisseurs, les analystes, les r&eacute;gulateurs et les journalistes ont r&eacute;alis&eacute; ce que les mod&egrave;les Minsky criaient depuis des mois : OpenAI ne peut pas survivre sans aide ext&eacute;rieure. Et cette aide n&#39;arrivera pas.</p>
+
+ <p>Le moment exact o&ugrave; la premi&egrave;re fissure devient visible. Non &#8212; corrigeons : le moment o&ugrave; quelqu&#39;un a finalement os&eacute; dire &agrave; voix haute ce que les mod&egrave;les math&eacute;matiques hurlaient depuis juillet 2025.</p>
+
+ <h2>Le d&eacute;clic Friar</h2>
+
+ <p>Pour comprendre le message de Sacks, il faut rembobiner de 28 heures. Le 5 novembre 2025, au WSJ Tech Live Summit, Sarah Friar &#8212; directrice financi&egrave;re d&#39;OpenAI &#8212; l&acirc;che une phrase qui restera dans les manuels d&#39;histoire &eacute;conomique<sup>[2]</sup> :</p>
+
+ <blockquote>&laquo; What we&#39;d really like to see is the ecosystem come together [...] maybe even governmental in the way it backstops or guarantees some of the debt. &raquo;</blockquote>
+
+ <p>Sarah Friar &#8212; WSJ Tech Live Summit, 5 novembre 2025<sup>[2]</sup></p>
+
+ <p>Une garantie de dernier recours.<sup>[3]</sup> Ce m&ecirc;me m&eacute;canisme utilis&eacute; pour sauver AIG en 2008, pour renflouer les banques en 2009. Sarah Friar vient de demander, publiquement, devant des cam&eacute;ras, que le contribuable am&eacute;ricain garantisse la dette d&#39;OpenAI &#8212; une startup valoris&eacute;e 500 milliards de dollars.<sup>[5]</sup></p>
+
+ <p>Vingt-quatre heures plus tard, elle se r&eacute;tracte sur LinkedIn<sup>[3]</sup> : &laquo; J&#39;ai mal formul&eacute; &raquo;, &laquo; ce n&#39;&eacute;tait pas une demande de sauvetage financier &raquo;. Trop tard. Le signal a &eacute;t&eacute; envoy&eacute;. Et David Sacks, fra&icirc;chement nomm&eacute; conseiller sp&eacute;cial IA et cryptomonnaies par Donald Trump, r&eacute;pond en 280 caract&egrave;res.</p>
+
+ <h2>Le contexte que je d&eacute;couvre en compilant les pi&egrave;ces</h2>
+
+ <p>Mais pour comprendre pourquoi ce message a d&eacute;clench&eacute; un s&eacute;isme, rembobinons de quatre mois. Entre janvier et octobre 2025, pendant que les donn&eacute;es sur la baisse tendancielle du taux de profit dans le secteur tech s&#39;accumulent, OpenAI n&eacute;gocie discr&egrave;tement avec les fonds souverains du Golfe.</p>
+
+ <p>Le projet Stargate &#8212; 500 milliards de dollars &#8212; avait &eacute;t&eacute; annonc&eacute; en janvier 2025.<sup>[4]</sup> MGX d&#39;Abu Dhabi &eacute;tait entr&eacute; comme cofinanceur principal aux c&ocirc;t&eacute;s de SoftBank. Les discussions pour des extensions se poursuivaient depuis juin, portant l&#39;engagement MGX &agrave; plus de 200 milliards de dollars. Et pendant tout ce temps, les compagnies d&#39;&eacute;lectricit&eacute; am&eacute;ricaines refusaient de nouvelles connexions au r&eacute;seau.</p>
+
+ <p>Le 5 novembre, Sarah Friar a demand&eacute; publiquement une garantie f&eacute;d&eacute;rale pour couvrir les engagements d&#39;OpenAI aux &Eacute;tats-Unis. Le lendemain, David Sacks a r&eacute;pondu. Le puzzle s&#39;assemble enfin.</p>
+
+ <p>Ce livre raconte cette histoire. De la trahison de mars 2019 au premier signal d&#39;alarme de novembre 2025, puis les 32 mois de purge jusqu&#39;au 15 juillet 2028. Comment une promesse technologique se transformera en catastrophe financi&egrave;re.</p>
+
+ <h2>Pourquoi j&#39;&eacute;cris ce livre maintenant</h2>
+
+ <p>&Eacute;conomiste consultant. Sept ann&eacute;es pass&eacute;es &agrave; &eacute;tudier deux th&eacute;ories que l&#39;universit&eacute; consid&egrave;re souvent comme obsol&egrave;tes ou trop radicales : la baisse tendancielle du taux de profit (Marx, Okishio, Shaikh) et l&#39;hypoth&egrave;se d&#39;instabilit&eacute; financi&egrave;re (Hyman Minsky).</p>
+
+ <p>Ces deux cadres th&eacute;oriques &#8212; l&#39;un vieux de 150 ans, l&#39;autre de 40 ans &#8212; d&eacute;crivent avec une pr&eacute;cision chirurgicale ce qui est en train d&#39;arriver &agrave; l&#39;industrie de l&#39;intelligence artificielle. Le message de Sacks n&#39;&eacute;tait pas une pol&eacute;mique politique. C&#39;&eacute;tait la confirmation empirique d&#39;un mod&egrave;le th&eacute;orique. Le premier signal d&#39;un effondrement &agrave; venir.</p>
+
+ <p>Pour ceux qui ne connaissent pas Minsky : &eacute;conomiste am&eacute;ricain, &eacute;l&egrave;ve de Schumpeter, th&eacute;oricien de l&#39;instabilit&eacute; financi&egrave;re. Sa th&egrave;se, publi&eacute;e en 1986, tient en une phrase : la stabilit&eacute; engendre l&#39;instabilit&eacute;. Les p&eacute;riodes de croissance et de confiance cr&eacute;ent les conditions de leur propre effondrement.</p>
+
+ <p>Minsky identifie trois types de financement : la finance couverte (l&#39;entreprise g&eacute;n&egrave;re assez de flux de tr&eacute;sorerie pour rembourser principal et int&eacute;r&ecirc;ts), la finance sp&eacute;culative (elle peut payer les int&eacute;r&ecirc;ts, mais doit refinancer le principal), et la finance Ponzi (elle ne peut m&ecirc;me plus payer les int&eacute;r&ecirc;ts &#8212; elle emprunte pour payer ses dettes).</p>
+
+ <p>L&#39;industrie de l&#39;IA en novembre 2025 est entr&eacute;e en phase Ponzi.</p>
+
+ <h2>Note m&eacute;thodologique</h2>
+
+ <p>Ce livre m&ecirc;le trois types de contenus, qu&#39;il est important de distinguer d&egrave;s maintenant.</p>
+
+ <p>Faits historiques v&eacute;rifi&eacute;s (2015&#8211;novembre 2025). Toutes les dates, valorisations, tours de financement, d&eacute;clarations publiques, chiffres de revenus et pertes sont sourc&eacute;s et v&eacute;rifiables. Les sources incluent : rapports financiers publics, communiqu&eacute;s de presse officiels, articles Reuters, Bloomberg, Financial Times, Wall Street Journal, rapports de l&#39;Agence internationale de l&#39;&eacute;nergie, donn&eacute;es de l&#39;US Energy Information Administration.</p>
+
+ <p>Projections analytiques bas&eacute;es sur donn&eacute;es industrielles. Certains d&eacute;tails sur les n&eacute;gociations en cours entre OpenAI et les fonds souverains (notamment les montants d&#39;extensions Stargate entre juillet et octobre 2025) sont bas&eacute;s sur des rapports industriels (The Information, Bloomberg, Reuters) et des estimations d&#39;infrastructure utilisant les co&ucirc;ts standards de l&#39;industrie.</p>
+
+ <p>Clarification m&eacute;thodologique importante. Les montants totaux d&#39;infrastructure (1 400 Md$) combinent donn&eacute;es confirm&eacute;es (Stargate 500 Md$, MGX 200 Md$) et estimations raisonnables bas&eacute;es sur les co&ucirc;ts unitaires de l&#39;industrie. Lorsqu&#39;un chiffre pr&eacute;cis n&#39;est pas public, je fournis la m&eacute;thodologie de calcul et les fourchettes d&#39;incertitude. Mon objectif n&#39;est pas la pr&eacute;cision comptable au dollar pr&egrave;s, mais l&#39;identification d&#39;ordres de grandeur qui changent fondamentalement l&#39;analyse &eacute;conomique.</p>
+
+ <p>Mod&egrave;les th&eacute;oriques appliqu&eacute;s (pr&eacute;dictions, effondrement juillet 2028). La pr&eacute;diction de 54 % de perte de valeur d&#39;ici mi-2028 est bas&eacute;e sur l&#39;application des mod&egrave;les de Hyman Minsky (financement Ponzi) et de Karl Marx (baisse tendancielle du taux de profit) aux donn&eacute;es disponibles en novembre 2025. C&#39;est une analyse &eacute;conomique fond&eacute;e sur des mod&egrave;les &eacute;prouv&eacute;s, pas une certitude proph&eacute;tique. Les march&eacute;s peuvent irrationnellement prolonger une bulle &#8212; ou la crever plus vite que pr&eacute;vu.</p>
+
+ <h2>Les chiffres qui ne mentent pas</h2>
+
+ <p>Prenons OpenAI &#8212; la licorne de Sam Altman, l&#39;entreprise qui a d&eacute;clench&eacute; la course &agrave; l&#39;IA avec ChatGPT en novembre 2022.</p>
+
+ <p>OpenAI &#8212; Tableau de bord, novembre 2025</p>
+
+ <p>Valorisation (octobre 2025)<sup>[5]</sup></p>
+
+ <p>500 Md$</p>
+
+ <p>Revenus annuels (2025)<sup>[6]</sup></p>
+
+ <p>20 Md$</p>
+
+ <p>Pertes S1 2025<sup>[6]</sup></p>
+
+ <p>&#8722;4,7 Md$</p>
+
+ <p>Pertes T3 2025<sup>[6]</sup></p>
+
+ <p>&#8722;11,5 Md$</p>
+
+ <p>Engagements infrastructure sur 8 ans<sup>[7]</sup></p>
+
+ <p>~1 400 Md$</p>
+
+ <p>L&#39;estimation de 1 400 Md$ &#8212; que j&#39;assume enti&egrave;rement &#8212; repose sur les &eacute;l&eacute;ments suivants :</p>
+
+ <p>D&eacute;composition des engagements d&#39;infrastructure &#8212; 8 ans</p>
+
+ <p>Poste &nbsp;&nbsp; Base de calcul &nbsp;&nbsp; Estimation</p>
+
+ <p>Stargate Project &nbsp;&nbsp; Annonce officielle, janvier 2025 &nbsp;&nbsp; 500 Md$ (confirm&eacute;)</p>
+
+ <p>Extensions MGX Abu Dhabi &nbsp;&nbsp; Bloomberg, Reuters, octobre 2025 &nbsp;&nbsp; 200 Md$ (confirm&eacute;)</p>
+
+ <p>500 000 GPU Blackwell (8 ans) &nbsp;&nbsp; 40 000 $/unit&eacute;, renouvellement partiel tous les 2 ans &nbsp;&nbsp; ~300 Md$</p>
+
+ <p>Construction centres de donn&eacute;es (50 sites, 100 MW) &nbsp;&nbsp; 4 Md$/site &#8212; co&ucirc;ts Meta/Google 2024 &nbsp;&nbsp; ~200 Md$</p>
+
+ <p>&Eacute;lectricit&eacute; (8 GW &times; 8 ans) &nbsp;&nbsp; Prix industriel &nbsp;&nbsp; ~100 Md$</p>
+
+ <p>R&eacute;seau, refroidissement, maintenance &nbsp;&nbsp; Standards industrie &nbsp;&nbsp; ~100 Md$</p>
+
+ <p>Fourchette r&eacute;aliste &nbsp;&nbsp; Estimation centrale retenue &nbsp;&nbsp; 1 200&#8211;1 600 Md$ &#8594; 1 400 Md$</p>
+
+ <p>M&ecirc;me en supposant une marge d&#39;erreur de &#177;20 %, l&#39;ordre de grandeur reste : plus d&#39;un millier de milliards de dollars.</p>
+
+ <p>Faisons le calcul simple : 1 400 milliards &#247; 8 ans = 175 milliards par an en moyenne. Revenus actuels : 20 milliards par an. Ratio de couverture : 11,4 %. Pour chaque dollar que gagne OpenAI, elle doit d&eacute;penser 8,75 dollars en infrastructure. C&#39;est math&eacute;matiquement insoutenable.</p>
+
+ <h2>Ma pr&eacute;diction : &#8722;54 % d&#39;ici le 15 juillet 2028</h2>
+
+ <p>Voici comment j&#39;arrive &agrave; ce chiffre &#8212; et pourquoi je le mets noir sur blanc d&egrave;s maintenant.</p>
+
+ <p>Mod&eacute;lisation de la valorisation cible</p>
+
+ <p>Valorisation actuelle</p>
+
+ <p>500 Md$</p>
+
+ <p>Multiple raisonnable (restructuration) &#8212; 11,5&times; les revenus</p>
+
+ <p>230 Md$</p>
+
+ <p>Perte de valeur projet&eacute;e</p>
+
+ <p>&#8722;54 % (270 Md$ &eacute;vapor&eacute;s)</p>
+
+ <p>Ce chiffre peut sembler conservateur pour une entreprise en financement Ponzi avec un ratio dette/revenus de 8,75:1. Les comparables historiques (WeWork, Uber pr&eacute;-rentabilit&eacute;) se sont n&eacute;goci&eacute;s &agrave; 2&#8211;4 fois les revenus apr&egrave;s restructuration. Pourquoi OpenAI m&eacute;riterait-elle un multiple de 11,5&times; ?</p>
+
+ <p>Trois raisons justifient ce prime : des actifs de propri&eacute;t&eacute; intellectuelle uniques (GPT-4/5 repr&eacute;sentent des ann&eacute;es de recherche et d&eacute;veloppement non reproductibles, valeur estim&eacute;e 80&#8211;100 Md$ en cas de rachat) ; une position de quasi-monopole (65 % du march&eacute; des grands mod&egrave;les de langage grand public en novembre 2025, avec des effets de r&eacute;seau qui prot&egrave;gent partiellement la valorisation) ; et des actifs strat&eacute;giques (Microsoft, principal cr&eacute;ancier avec 13 Md$ investis, a un int&eacute;r&ecirc;t vital &agrave; maintenir OpenAI op&eacute;rationnel plut&ocirc;t qu&#39;&agrave; le liquider).</p>
+
+ <p>Le &#8722;54 % est donc un sc&eacute;nario de restructuration ordonn&eacute;e, pas de liquidation chaotique. C&#39;est d&eacute;j&agrave; une catastrophe &#8212; 270 milliards de dollars &eacute;vapor&eacute;s &#8212; mais ce n&#39;est pas l&#39;extinction.</p>
+
+ <p>Ce chiffre ne sort pas d&#39;un chapeau. Il d&eacute;coule d&#39;une analyse men&eacute;e en juillet 2025, au moment o&ugrave; OpenAI franchissait ce que j&#39;appelle le &laquo; Point G Ponzi &raquo; &#8212; le moment math&eacute;matique o&ugrave; les co&ucirc;ts d&#39;infrastructure d&eacute;passent d&eacute;finitivement la capacit&eacute; de g&eacute;n&eacute;ration de revenus, m&ecirc;me en supposant une croissance optimiste.</p>
+
+ <p>Juillet 2025 : OpenAI acc&eacute;l&egrave;re ses engagements Stargate avec MGX Abu Dhabi. Les compagnies d&#39;&eacute;lectricit&eacute; texanes refusent de nouvelles connexions. Les 1 400 milliards de dollars d&#39;engagements d&#39;infrastructure deviennent math&eacute;matiquement impossibles &agrave; honorer sur le sol am&eacute;ricain sans &eacute;lectricit&eacute; disponible. C&#39;&eacute;tait le Point G Ponzi &#8212; le moment o&ugrave;, selon Minsky, une entreprise en financement Ponzi ne peut m&ecirc;me plus payer les int&eacute;r&ecirc;ts de sa dette et doit emprunter pour rembourser ses cr&eacute;anciers.</p>
+
+ <p>Le 5 novembre 2025, avec la demande de Sarah Friar, le march&eacute; commence &agrave; comprendre. Le 6 novembre, David Sacks le confirme. Mais ce n&#39;est que le premier signal. Le vrai Minsky Moment &#8212; l&#39;instant o&ugrave; tout bascule &#8212; arrivera autour du 15 juillet 2028.</p>
+
+ <h2>Pourquoi c&#39;est un suicide, pas un accident</h2>
+
+ <p>Le titre de ce livre n&#39;est pas une provocation gratuite. L&#39;IA n&#39;a pas tu&eacute; le capitalisme par accident. Le capitalisme s&#39;est suicid&eacute; en investissant massivement dans une technologie aux rendements d&eacute;croissants. Voici la m&eacute;canique &#8212; que nous d&eacute;taillerons dans les quinze chapitres qui suivent.</p>
+
+ <p>La baisse tendancielle du taux de profit. Chaque nouvelle g&eacute;n&eacute;ration de mod&egrave;les d&#39;IA co&ucirc;te exponentiellement plus cher &agrave; entra&icirc;ner (+10 fois par g&eacute;n&eacute;ration), mais ne g&eacute;n&egrave;re que marginalement plus de revenus (+1,5&#8211;2 fois).</p>
+
+ <p>Co&ucirc;ts d&#39;entra&icirc;nement &#8212; Progression exponentielle</p>
+
+ <p>Mod&egrave;le &nbsp;&nbsp; Ann&eacute;e &nbsp;&nbsp; Co&ucirc;t estim&eacute; &nbsp;&nbsp; Facteur</p>
+
+ <p>GPT-3 &nbsp;&nbsp; 2020 &nbsp;&nbsp; ~5 M$ &nbsp;&nbsp; &#8212;</p>
+
+ <p>GPT-4 &nbsp;&nbsp; 2023 &nbsp;&nbsp; ~100 M$ &nbsp;&nbsp; &times;20</p>
+
+ <p>GPT-5 (rumeur) &nbsp;&nbsp; 2025 &nbsp;&nbsp; ~2 500 M$ &nbsp;&nbsp; &times;25</p>
+
+ <p>Le co&ucirc;t du capital augmente plus vite que la productivit&eacute;. C&#39;est exactement le m&eacute;canisme d&eacute;crit par Marx en 1867 dans Le Capital, Livre III.</p></div><div class="prev-next"><div style="flex:1"></div><a class="btn-next" href="index.html#introb">Introduction &middot; Notes & Sources &#8594;</a></div>
+<nav><a href="index.html">&#8592; Couverture</a></nav><div class="page" id="introb"><p>Le Minsky Moment. L&#39;industrie est pass&eacute;e en trois ans de la finance couverte &agrave; la finance Ponzi : en 2022, ChatGPT g&eacute;n&egrave;re des revenus r&eacute;els, OpenAI est rentable sur certains segments ; en 2024, les investisseurs en capital-risque investissent non pour des profits actuels, mais pour des promesses futures (AGI, superintelligence) ; en 2025, les entreprises empruntent pour payer leurs dettes d&#39;infrastructure, comptant sur de nouveaux tours de financement pour survivre. C&#39;est la d&eacute;finition m&ecirc;me du financement Ponzi.</p>
+
+ <p>La crise &eacute;nerg&eacute;tique imminente. 1 000 centres de donn&eacute;es IA annonc&eacute;s repr&eacute;sentent 8 % de l&#39;&eacute;lectricit&eacute; mondiale d&#39;ici 2030. Les petits r&eacute;acteurs nucl&eacute;aires modulaires promis par Sam Altman n&#39;existent pas &agrave; l&#39;&eacute;chelle commerciale. Le r&eacute;seau &eacute;lectrique ne suivra pas.</p>
+
+ <h2>Plan de l&#39;ouvrage</h2>
+
+ <h2>Partie I &#8212; La pompe &agrave; Phynance (2018&#8211;2024)</h2>
+
+ <p>Comment OpenAI est pass&eacute;e de &laquo; &agrave; but non lucratif &raquo; &agrave; &laquo; profit limit&eacute; &raquo; &agrave; &laquo; Ponzi-profit &raquo; en sept ans.</p>
+
+ <h2>Partie II &#8212; Le premier signal (novembre 2025)</h2>
+
+ <p>Chronologie d&eacute;taill&eacute;e des 28 heures qui ont r&eacute;v&eacute;l&eacute; la faille &#8212; du message de David Sacks &agrave; la panique des march&eacute;s. Le d&eacute;but de la fin.</p>
+
+ <h2>Partie III &#8212; La purge (novembre 2025 &#8211; juillet 2028)</h2>
+
+ <p>Les 32 mois de d&eacute;ni. Les tours relais d&eacute;sesp&eacute;r&eacute;s. Les 83 licornes valoris&eacute;es &agrave; plus d&#39;un milliard qui vont mettre la cl&eacute; sous la porte. Le ch&ocirc;mage de 1,4 million d&#39;ing&eacute;nieurs IA. Les GPU H100 vendus &agrave; 15 centimes le dollar.</p>
+
+ <h2>Partie IV &#8212; 15 juillet 2028 : Le Minsky Moment</h2>
+
+ <p>Le jour exact o&ugrave; tout bascule. OpenAI annonce sa restructuration. &#8722;54 %. 230 milliards de dollars. Le crash pr&eacute;dit devient r&eacute;alit&eacute;.</p>
+
+ <h2>Partie V &#8212; La Chine et le crash de l&#39;IA</h2>
+
+ <p>Le mod&egrave;le chinois face &agrave; la purge occidentale : subventions massives, retard technologique de 18 mois, mais r&eacute;silience structurelle. Qui sort vainqueur de l&#39;effondrement ?</p>
+
+ <h2>Partie VI &#8212; Ce qui vient apr&egrave;s</h2>
+
+ <p>Le capitalisme post-IA : f&eacute;odal, rentier, mais vivant. Le GPAT (Trait&eacute; mondial d&#39;IA publique) : tentative de socialisation de la puissance de calcul et son &eacute;chec. Du quintupole 2029 au tripole 2040.</p>
+
+ <h2>Ce que ce livre va d&eacute;montrer</h2>
+
+ <p>Je ne suis pas un proph&egrave;te de l&#39;apocalypse technologique. Je ne d&eacute;teste pas l&#39;IA. Je d&eacute;teste les mensonges financiers.</p>
+
+ <p>Ce livre va documenter, jour apr&egrave;s jour, comment une industrie valoris&eacute;e &agrave; 3 000 milliards de dollars &#8212; NVIDIA, OpenAI, Anthropic, Google DeepMind, Microsoft Azure IA, AWS IA, Google Cloud IA &#8212; va en perdre 2 000 en 32 mois. Pas &agrave; cause d&#39;une r&eacute;glementation. Pas &agrave; cause d&#39;une technologie concurrente. &Agrave; cause de l&#39;arithm&eacute;tique de base.</p>
+
+ <p>Abidjan, 11 novembre 2025 &#8212; 01h34</p>
+
+ <p>L&#39;histoire jugera.</p>
+
+ <p>Je sauvegarde ce document. Dans 32 mois, nous saurons si j&#39;avais raison.</p>
+
+ <p>Commen&ccedil;ons.</p>
+
+ <h2>Mise &agrave; jour &#8212; F&eacute;vrier 2026</h2>
+
+ <p>Trois mois se sont &eacute;coul&eacute;s depuis la r&eacute;daction de cette introduction. Les faits r&eacute;cents renforcent l&#39;analyse initiale.</p>
+
+ <p>La valorisation d&#39;OpenAI a grimp&eacute; &agrave; environ 750&#8211;830 milliards de dollars via de nouveaux tours de financement massifs impliquant SoftBank, MGX, Oracle, NVIDIA et Microsoft. Le march&eacute; secondaire et Polymarket indiquent environ 34 % de probabilit&eacute; qu&#39;OpenAI atteigne 1 000 milliards de dollars de valorisation en 2026.</p>
+
+ <p>Le taux de combustion 2026 est estim&eacute; &agrave; environ 14 milliards de dollars de pertes projet&eacute;es &#8212; trois fois les estimations initiales de 2025 &#8212;, portant les pertes cumul&eacute;es &agrave; environ 44 milliards de dollars d&#39;ici 2028.</p>
+
+ <p>Le projet Stargate avance (site d&#39;Abilene, Texas, op&eacute;rationnel ; sites Michigan, Wisconsin, Texas et &Eacute;mirats en construction), mais des r&eacute;ductions d&#39;&eacute;chelle probables en 2026 sont attendues en raison des retards d&#39;approvisionnement &eacute;nerg&eacute;tique et de l&#39;escalade des co&ucirc;ts.</p>
+
+ <p>L&#39;arithm&eacute;tique reste implacable : la valorisation monte artificiellement via l&#39;injection continue de capitaux souverains et des grands acteurs technologiques, prolongeant le d&eacute;ni sp&eacute;culatif. Mais le ratio taux de combustion/revenus ne fait qu&#39;empirer. Le Minsky Moment approche.</p></div><div class="prev-next"><a class="btn-prev" href="index.html#intro">&#8592; Introduction &middot; 32 mois pour crever</a><a class="btn-next" href="part1.html#ch01">Chapitre 1 &middot; La trahison originelle &#8594;</a></div>
+<script>
+const h = window.location.hash.slice(1);
+if(h){ const el = document.getElementById(h); if(el) setTimeout(()=>el.scrollIntoView(),100); }
+</script>
+</body>
+</html>
